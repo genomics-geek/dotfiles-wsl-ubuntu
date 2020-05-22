@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Windows home
+alias wh="/mnt/c/Users/$USER"
+
+# Shortcuts to folders
+alias dl="cd /mnt/c/Users/$USER/Downloads"
+alias dt="cd /mnt/c/Users/$USER/Desktop"
+alias p="cd /mnt/c/Users/$USER/Projects"
+alias g="git"
+
+# Make terminal better
+alias h='history'
+alias path='echo -e ${PATH//:/\\n}'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias mkdir='mkdir -pv'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lsd="ls -lhF | grep --color=never '^d'"
+
+# Date/Time shortcuts
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Managing dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Public key shortcuts
+alias pubkey='cat $HOME/.ssh/id_rsa.pub'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

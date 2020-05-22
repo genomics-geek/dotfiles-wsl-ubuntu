@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:$YARN/bin:$YARN_PKGS:$JENV/bin:$PLENV/bin:$PYENV/bin:$PATH"
+
+# Virtualenvs
+if which pyenv > /dev/null ; then eval "$(pyenv init -)"; fi
+eval "$(pyenv virtualenv-init -)"
+test -f /usr/local/bin/virtualenvwrapper.sh && source /usr/local/bin/virtualenvwrapper.sh
+eval "$(jenv init -)"
+eval "$(plenv init -)"
+eval "$(direnv hook bash)"
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
