@@ -7,7 +7,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Windows home
-alias wh="/mnt/c/Users/$USER"
+alias w~="cd /mnt/c/Users/$USER"
 
 # Shortcuts to folders
 alias dl="cd /mnt/c/Users/$USER/Downloads"
